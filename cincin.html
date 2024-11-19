@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Proposal Romantis</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: skyblue;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #pesawat {
+            position: absolute;
+            width: 100px;
+            top: 50px;
+            left: -100px;
+            transition: all 1.5s;
+            z-index: 10;
+        }
+
+        .emoticon {
+            position: absolute;
+            font-size: 50px;
+            opacity: 0;
+            transition: all 1s;
+            cursor: pointer;
+            z-index: 20;
+        }
+
+        #proposal-text {
+            position: absolute;
+            font-size: 36px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-align: center;
+            z-index: 30;
+            padding: 20px;
+            background-color: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            opacity: 0.8;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        #wa-button {
+            position: absolute;
+            bottom: 50px;
+            background-color: #25D366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            display: none;
+            z-index: 40;
+            transition: all 0.3s;
+        }
+
+        #wa-button:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+
+        @keyframes sparkle {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.5) rotate(20deg); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-30px) scale(1.2); }
+        }
+
+        @keyframes fallFaster {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(50px) rotate(45deg); }
+            100% { transform: translateY(100%) rotate(90deg); }
+        }
+
+        @keyframes textPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @media screen and (max-width: 600px) {
+            #proposal-text {
+                font-size: 24px;
+                padding: 10px;
+                width: 90%;
+                margin: 0 auto;
+            }
+
+            #pesawat {
+                width: 70px;
+            }
+
+            .emoticon {
+                font-size: 30px;
+            }
+
+            #wa-button {
+                bottom: 20px;
+                padding: 8px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="proposal-text">WILL YOU MARRY ME?</div>
+    <a id="wa-button" href="#" target="_blank">jawab disini ya</a>
+    <img id="pesawat" src="plane.png" alt="Pesawat">
+    <audio id="background-music" loop autoplay>
+        <source src="lagu.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <script>
+        const pesawat = document.getElementById('pesawat');
+        const proposalText = document.getElementById('proposal-text');
+        const waButton = document.getElementById('wa-button');
+        const backgroundMusic = document.getElementById('background-music');
+        let emoticonCounter = 0;
+
+        // Untuk memastikan musik diputar setelah interaksi pengguna
+        document.addEventListener('click', function() {
+        backgroundMusic.play();
+      });
+
+        function animasiTeks() {
+            proposalText.style.animation = 'textPulse 1s infinite';
+        }
+
+        proposalText.addEventListener('click', () => {
+            proposalText.style.opacity = '0';
+            proposalText.style.transform = 'scale(0.5)';
+
+            waButton.style.display = 'block';
+            waButton.href = `https://wa.me/6281400796283?text=MAUU%20MAS%20ALAMM%20SAYANGG`;
+        });
+
+        function animasiPesawat() {
+            pesawat.style.left = '0px';
+            setTimeout(() => {
+                pesawat.style.left = `${window.innerWidth}px`;
+            }, 1500);
+        }
+
+        function buatEmoticon() {
+            const emoticons = ['💍', '💐'];
+            const emoticon = emoticons[Math.floor(Math.random() * emoticons.length)];
+
+            const emoticonEl = document.createElement('div');
+            emoticonEl.classList.add('emoticon');
+            emoticonEl.innerHTML = emoticon;
+
+            emoticonEl.style.left = `${Math.random() * (window.innerWidth - 50)}px`;
+            emoticonEl.style.top = '100px';
+
+            emoticonEl.addEventListener('click', () => {
+                emoticonEl.style.animation = 'sparkle 0.3s infinite';
+                
+                const additionalEmoticons = ['❤️', '💕', '🌹'];
+                additionalEmoticons.forEach((addEmoticon, index) => {
+                    const addEl = document.createElement('div');
+                    addEl.innerHTML = addEmoticon;
+                    addEl.style.position = 'absolute';
+                    addEl.style.left = `${emoticonEl.offsetLeft + (index * 50)}px`;
+                    addEl.style.top = `${emoticonEl.offsetTop + (index * 50)}px`;
+                    addEl.style.fontSize = '30px';
+                    addEl.style.opacity = '0';
+                    
+                    document.body.appendChild(addEl);
+                    
+                    setTimeout(() => {
+                        addEl.style.opacity = '1';
+                        addEl.style.animation = 'bounce 0.3s infinite';
+                    }, 10);
+
+                    setTimeout(() => {
+                        addEl.remove();
+                    }, 2000);
+                });
+
+                emoticonEl.style.animation = 'fallFaster 1s linear forwards';
+
+                setTimeout(() => {
+                    emoticonEl.remove();
+                }, 2000);
+            });
+
+            document.body.appendChild(emoticonEl);
+
+            setTimeout(() => {
+                emoticonEl.style.top = `${window.innerHeight - 50}px`;
+                emoticonEl.style.opacity = '1';
+            }, 100);
+        }
+
+        function responsiveTeks() {
+            const width = window.innerWidth;
+            proposalText.style.fontSize = `${Math.min(width * 0.08, 48)}px`;
+        }
+
+        animasiTeks();
+        animasiPesawat();
+        responsiveTeks();
+
+        setInterval(() => {
+            if (emoticonCounter < 7) {
+                buatEmoticon();
+                emoticonCounter++;
+            }
+        }, 1000);
+
+        setInterval(() => {
+            emoticonCounter = 0;
+            animasiPesawat();
+        }, 8000);
+
+        window.addEventListener('resize', responsiveTeks);
+    </script>
+</body>
+</html>

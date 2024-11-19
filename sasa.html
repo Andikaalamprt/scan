@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>halaman</title>
+  <style>
+    
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: purple;
+      gap: 20px;
+    }
+
+   
+    #bacaButton {
+      background: #ff6584;
+    }
+
+    #bacaButton:hover {
+      background: #ff4361;
+    }
+
+    #mauButton {
+      background: #4CAF50; /* Warna hijau */
+    }
+
+    #mauButton:hover {
+      background: #45a049;
+    }
+
+    #playButton {
+      background: #ff6584;
+    }
+
+    #playButton:hover {
+      background: #ff4361;
+    }
+
+    #videoContainer {
+      position: relative;
+      display: none;
+      width: 100%;
+      height: 100%;
+    }
+
+
+    video {
+      width: 100%;
+      height: 100%;
+    }
+
+    
+    h1 {
+        text-align: center;
+        font-size: 18px; /* Kurangi ukuran judul */
+        color: black;
+      }
+  </style>
+</head>
+<body>
+  <h1>URUT YA KLIK NYA SESUAI NOMER</h1>
+  <button id="bacaButton">1.Baca dulu ya sayang</button>
+  <button id="mauButton">2.Mau ga sayang</button>
+
+  <script>
+    const bacaButton = document.getElementById('bacaButton');
+    const mauButton = document.getElementById('mauButton');
+
+    // Event listener untuk tombol "Mau ga sayang"
+    mauButton.addEventListener('click', () => {
+      // Alihkan ke halaman cincin.html
+      window.location.href = 'cincin.html';
+    });
+
+    bacaButton.addEventListener('click', () => {
+      // Alihkan ke surat.html
+      window.location.href = 'surat.html';
+    });
+  </script>
+</body>
+</html>

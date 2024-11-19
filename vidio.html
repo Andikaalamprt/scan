@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Video Player</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .video-container {
+            width: 100%; /* Ubah dari max-width menjadi width 100% */
+            height: 100vh; /* Gunakan tinggi viewport penuh */
+            margin: 0;
+            padding: 0;
+            background-color: black; /* Background hitam agar terlihat lebih baik */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        video {
+            width: 100%; /* Lebar video 100% dari container */
+            height: 100%; /* Tinggi video 100% dari container */
+            object-fit: contain; /* Menjaga aspek rasio video */
+        }
+        .controls {
+            margin-top: 20px;
+            background-color: rgba(255,255,255,0.8);
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <h1>Video Player</h1>
+        
+        <video id="myVideo" controls>
+            <source src="vidio.mp4" type="video/mp4">
+            Browser Anda tidak mendukung video.
+        </video>
+
+        <div class="controls">
+            <button onclick="playPause()">Play/Pause</button>
+            <button onclick="stop()">Stop</button>
+            <input type="range" min="0" max="100" 
+                   value="0" id="volumeSlider" 
+                   onchange="setVolume()">
+        </div>
+    </div>
+
+    <script>
+        const video = document.getElementById('myVideo');
+        const volumeSlider = document.getElementById('volumeSlider');
+
+        function playPause() {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        }
+
+        function stop() {
+            video.pause();
+            video.currentTime = 0;
+        }
+
+        function setVolume() {
+            video.volume = volumeSlider.value / 100;
+        }
+    </script>
+</body>
+</html>

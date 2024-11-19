@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Futuristic Letter</title>
+    <style>
+        /* Reset dan Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Letter Container */
+        .letter-container {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Letter Header */
+         .letter-header {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(90deg, #00d4ff, #ff0099);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        /* Letter Body */
+        .letter-body {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #e0e0e0;
+            text-align: justify;
+            margin-bottom: 20px;
+            word-wrap: break-word;
+        }
+
+        /* Buttons */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .neon-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #1a1a2e;
+            background: linear-gradient(90deg, #00d4ff, #ff0099);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 0 10px #00d4ff, 0 0 20px #ff0099;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 10px;
+        }
+
+        .neon-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #00d4ff, 0 0 40px #ff0099;
+        }
+
+        /* Responsive Adjustments */
+        @media screen and (max-width: 600px) {
+            .letter-container {
+                padding: 20px;
+                margin: 0;
+                border-radius: 15px;
+            }
+
+            .letter-header {
+                font-size: 1.3rem;
+            }
+
+            .letter-body {
+                font-size: 0.85rem;
+                line-height: 1.6;
+            }
+
+            .neon-button {
+                padding: 8px 15px;
+                font-size: 0.8rem;
+                margin: 5px;
+            }
+
+            .button-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Optional: Decorative Background */
+        .background-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(26,26,46,0.9), rgba(22,33,62,0.9));
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <div class="letter-container">
+        <div class="letter-header">
+            HAI SASAAYANG...
+        </div>
+        <div class="letter-body">
+            Untukmu, Sasa tersayang 🤍, 
+        
+            Hari ini, aku berdiri di hadapanmu dengan penuh rasa syukur dan harapan. Selama perjalanan kita bersama, aku telah menemukan sesuatu yang luar biasa: kamu, sumber kebahagiaan, kekuatan, dan ketenangan dalam hidupku.
+        
+            Aku mencintaimu dengan segala kelebihan dan kekuranganmu, sama seperti kamu mencintaiku dengan apa adanya diriku. Bersamamu, aku belajar bahwa cinta adalah tentang menerima, memberi, dan bertumbuh bersama.
+        
+            Nindy, aku ingin kamu tahu bahwa aku tidak hanya ingin mencintaimu hari ini, tetapi setiap hari ke depan. Aku ingin menjadi seseorang yang selalu ada untukmu, di saat-saat terbaik maupun tersulit. Aku ingin menjadi orang yang berjalan di sampingmu, menggapai mimpi-mimpi kita bersama.
+        
+            Maka hari ini, dengan seluruh hatiku, aku ingin bertanya:
+            Maukah kamu menjadi pendamping hidupku, menghabiskan sisa waktu kita bersama, dan membangun keluarga kecil yang penuh cinta?
+        
+            Aku berjanji akan selalu mencintaimu, menjagamu, dan membahagiakanmu sebaik yang aku bisa.
+        
+            Aku di sini, untukmu, dan untuk kita.
+        
+            Maukah kamu, Sasa, menjadi istriku?
+        </div>
+        <div class="button-container">
+            <button class="neon-button kembali-button">Kembali</button>
+            <button class="neon-button lihat-button">Lihat ya sayang</button>
+        </div>
+    </div>
+
+    <script>
+        // Tombol Kembali
+        document.querySelector('.kembali-button').addEventListener('click', function() {
+            window.location.href = 'sasa.html';
+        });
+
+        // Tombol Lihat ya sayang
+        document.querySelector('.lihat-button').addEventListener('click', function() {
+            window.location.href = 'vidio.html';
+        });
+    </script>
+</body>
+</html>
