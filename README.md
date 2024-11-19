@@ -1,4 +1,4 @@
-![Screenshot 2024-11-19 083919](https://github.com/user-attachments/assets/b36d84c7-e348-4306-8a9e-a21abf4e0856)
+![Screenshot 2024-11-19 083919](https://github.com/user-attachments/assets/f3b878f6-c0d2-494c-95eb-bbabe3193b9b)
 
 AURHOR : TAMA
 IG ; t4malass_
